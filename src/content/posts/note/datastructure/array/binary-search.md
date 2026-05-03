@@ -1,6 +1,6 @@
 ---
 title: "二分查找"
-published: 2026-05-01
+published: 2025-03-11
 description: "给定一个 n 个元素有序的（升序）整型数组 nums 和一个目标值 target  ，写一个函数搜索 nums 中的 target，如果目标值存在返回下标，否则返回 -1。\r \r 示例 1:"
 tags: ["笔记", "数据结构", "算法", "数组"]
 category: "数据结构-数组"

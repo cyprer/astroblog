@@ -1,6 +1,6 @@
 ---
 title: "java基础"
-published: 2026-05-01
+published: 2026-03-13
 description: "java基础\r \r java基本类型\r byte 1B\r short 2B\r int 4B\r long 8B\r float 4B\r double 8B\r char 2B\r boolean ?\r 布尔值的大小\r 1. 作为局部变量时:  4B\r   由于jvm没有专门的1bit/Byte字节指令操作b..."
 tags: ["笔记", "Java"]
 category: "Java"

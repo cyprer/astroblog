@@ -1,6 +1,6 @@
 ---
 title: "CS61C Lab1 学习笔记"
-published: 2026-05-01
+published: 2025-03-11
 description: "学会了编译,gcc example.c ,这会生成一个a.out文件,然后./a.out就可以运行了\r 不同的是,gcc -o example example.c,这样就可以生成一个example可执行文件,然后./example就可以运行了,也就是说gcc -o 可以命名可执行文件的名字\r 还学了..."
 tags: ["笔记", "计组", "CS"]
 category: "计算机组成原理"

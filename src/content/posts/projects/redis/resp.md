@@ -1,6 +1,6 @@
 ---
 title: "resp协议的解析"
-published: 2026-05-01
+published: 2025-05-15
 description: "resp协议的解析\r \r 定义Resp抽象类以及实现类(实现类实现抽象类的encode抽象方法)"
 tags: ["项目", "Redis", "Go"]
 category: "项目-Redis"

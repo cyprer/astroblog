@@ -1,6 +1,6 @@
 ---
 title: "字节码增强技术"
-published: 2026-05-01
+published: 2025-08-21
 description: "字节码增强技术\r > 字节码增强技术就是一类对现有字节码进行修改或者动态生成全新字节码文件的技术\r 基于ASM实现粗糙的AOP\r > asm是一个java字节码操作框架,它可以直接以二进制的形式操作字节码,可以用来实现类加载器,字节码增强,字节码分析等功能.\r ASM的两大api\r Core API..."
 tags: ["笔记", "JVM", "Java"]
 category: "JVM"

@@ -1,6 +1,6 @@
 ---
 title: "建站经历"
-published: 2026-05-01
+published: 2025-03-16
 description: "建站经历\r + 由于本人是Windows端,因此一项仅提供windows端的搭建教程\r + 本网站是基于mkdocs并用github page部署的,意味着你需要拥有自己的github账号\r + python环境,建议直接前往官网下载最新版即可\r + 一个文本编辑器,这边推荐vscode\r + gi..."
 tags: ["笔记", "杂项"]
 category: "其他"

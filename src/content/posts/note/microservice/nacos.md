@@ -1,6 +1,6 @@
 ---
 title: "nacos"
-published: 2026-05-01
+published: 2025-08-16
 description: "nacos\r \r 安装nacos\r   去github安装即可\r nacos启动\r 1. 在bin目录下执行startup.cmd -m standalone\r 2. 访问http://localhost:8848/nacos\r 3. 登录账号密码都是nacos\r 4. 在微服务项目中导入依赖即可并..."
 tags: ["笔记", "微服务", "SpringCloud"]
 category: "微服务"

@@ -1,6 +1,6 @@
 ---
 title: "jvm内存结构"
-published: 2026-05-01
+published: 2025-08-21
 description: "jvm内存结构\r \r 运行时数据区\r 线程私有：程序计数器、虚拟机栈、本地方法栈\r 线程共享：堆、方法区\r 堆\r   对于hotspot来说,在jdk1.8之前,堆实际包含了新生代老年代和方法区,但在jdk1.8之后,方法区从堆中移除,使用的是直接内存,实现为元空间\r jdk1.6\r   对于hot..."
 tags: ["笔记", "JVM", "Java"]
 category: "JVM"

@@ -1,6 +1,6 @@
 ---
 title: "基于session实现登录"
-published: 2026-05-01
+published: 2026-03-13
 description: "基于session实现登录\r 基本逻辑\r \r 集群session共享问题:\r   >多个tomcat服务器之间session不共享(注意不是浏览器)  \r \r 解决方法逻辑: \r \r ##用户信息存储\r   > 由于session不共享,因此用户信息需要存储在redis中  \r \r   解决方法:\r..."
 tags: ["笔记", "Java"]
 category: "Java"

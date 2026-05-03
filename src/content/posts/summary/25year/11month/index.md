@@ -1,6 +1,6 @@
 ---
 title: "2025年11月份summary"
-published: 2026-05-01
+published: 2025-11-01
 description: "11月summary\r   大致是学习vue和做博客项目的一个月,下一月能找到实习吗,诶..."
 tags: ["周报", "总结"]
 category: "周报"

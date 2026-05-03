@@ -1,6 +1,6 @@
 ---
 title: "MyBatis 介绍"
-published: 2026-05-01
+published: 2026-03-13
 description: "MyBatis 介绍\r \r 1. 什么是 MyBatis\r MyBatis 是一个开源的 Java 持久层框架，专注于简化数据库操作。它通过映射文件（XML 或注解）将 Java 对象与数据库表进行映射，从而实现数据的增删改查操作。MyBatis 提供了强大的动态 SQL 功能，支持自定义 SQL ..."
 tags: ["笔记", "Java"]
 category: "Java"

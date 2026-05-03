@@ -1,6 +1,6 @@
 ---
 title: "全局唯一id"
-published: 2026-05-01
+published: 2026-03-13
 description: "全局唯一id\r id不能自增,数据过于明显\r 受单表数据量的限制\r 解决方法:redis全局ID生成器\r ID 组成: 符号位(一位)+时间戳(31位)+序列号(32位)\r 符号位: 固定为0\r 时间戳: 31位时间戳\r 序列号: 32位序列号\r 超卖问题\r CAS法(用于解决ABA问题)\r   问..."
 tags: ["笔记", "Java"]
 category: "Java"
