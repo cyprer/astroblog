@@ -207,9 +207,6 @@ onMount(() => {
 													<a 
 														href={getPostUrlBySlug(post.slug)} 
 														class="block py-1 text-75 hover:text-[var(--primary)] transition"
-														on:click={() => {
-															sessionStorage.setItem('diary-expand-year', String(year.year));
-														}}
 													>
 													📋 {post.data.title}
 													</a>
@@ -228,16 +225,13 @@ onMount(() => {
 								</span>
 								<span class="font-bold">{month.month}月</span>
 													{#if month.isIndex}
-														<a
-															href={getPostUrlBySlug(month.posts[0]?.slug || '')}
-															class="ml-3 text-sm text-50 hover:text-[var(--primary)]"
-															on:click|stopPropagation={() => {
-																sessionStorage.setItem('diary-expand-year', String(year.year));
-																sessionStorage.setItem('diary-expand-month', String(month.month));
-															}}
-														>
-															📋 {month.posts[0]?.data.title || '月结'}
-														</a>
+													<a
+														href={getPostUrlBySlug(month.posts[0]?.slug || '')}
+														class="ml-3 text-sm text-50 hover:text-[var(--primary)]"
+														on:click|stopPropagation
+													>
+														📋 {month.posts[0]?.data.title || '月结'}
+													</a>
 													{/if}
 								<span class="ml-auto text-xs text-30">({month.weeks.length}周)</span>
 							</button>
@@ -249,17 +243,13 @@ onMount(() => {
 											<div class="mb-1">
 												{#if week.posts.length === 1}
 													<!-- 只有一篇文章，直接显示链接，无需展开 -->
-													<a
-														href={getPostUrlBySlug(week.posts[0].slug)}
-														class="flex items-center w-full h-9 px-3 rounded-lg btn-plain text-left hover:text-[var(--primary)] transition"
-														on:click={() => {
-															sessionStorage.setItem('diary-expand-year', String(year.year));
-															sessionStorage.setItem('diary-expand-month', String(month.month));
-														}}
-													>
-														<span class="text-sm font-bold">第{week.week}周</span>
-														<span class="ml-2 text-sm text-75 truncate">📝 {week.posts[0].data.title}</span>
-													</a>
+												<a
+													href={getPostUrlBySlug(week.posts[0].slug)}
+													class="flex items-center w-full h-9 px-3 rounded-lg btn-plain text-left hover:text-[var(--primary)] transition"
+												>
+													<span class="text-sm font-bold">第{week.week}周</span>
+													<span class="ml-2 text-sm text-75 truncate">📝 {week.posts[0].data.title}</span>
+												</a>
 												{:else}
 													<!-- 多篇文章，需要展开 -->
 													<button

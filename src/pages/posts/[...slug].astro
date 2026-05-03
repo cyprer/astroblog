@@ -14,12 +14,6 @@ import PostMetadata from "../../components/PostMeta.astro";
 import { profileConfig, siteConfig } from "../../config";
 import { formatDateToYYYYMMDD } from "../../utils/date-utils";
 
-// Parse year/month from summary slug, e.g. "summary/26year/5month/1week" -> { year: "26", month: "5" }
-function getDiaryBackLink(slug: string): string | null {
-	if (!slug.startsWith("summary/")) return null;
-	return "/diary/";
-}
-
 export async function getStaticPaths() {
 	const blogEntries = await getSortedPosts();
 	return blogEntries.map((entry) => ({
@@ -29,7 +23,6 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-const diaryBackLink = getDiaryBackLink(entry.slug);
 const { Content, headings } = await entry.render();
 
 const { remarkPluginFrontmatter } = await entry.render();
@@ -76,15 +69,73 @@ const jsonLd = {
                 </div>
             </div>
 
-            <!-- back to diary -->
-            {diaryBackLink &&
-                <div class="onload-animation mb-2">
-                    <a href={diaryBackLink} class="inline-flex items-center text-sm text-[var(--primary)] hover:underline transition">
-                        <Icon name="material-symbols:arrow-back-rounded" class="mr-1 text-base" />
-                        返回日记
-                    </a>
-                </div>
-            }
+            <!-- article slug for JS -->
+            <meta name="article-slug" content={entry.slug} />
+
+            <!-- back link -->
+            <div id="back-link-container" class="onload-animation mb-2 hidden">
+                <a id="back-link" href="/" class="inline-flex items-center text-sm text-[var(--primary)] hover:underline transition">
+                    <Icon name="material-symbols:arrow-back-rounded" class="mr-1 text-base" />
+                    <span id="back-link-text">返回</span>
+                </a>
+            </div>
+
+            <script is:inline>
+                (function() {
+                    const referrer = document.referrer;
+                    const currentUrl = window.location.href;
+
+                    // 没有 referrer 或来自当前页，不显示
+                    if (!referrer || referrer === currentUrl) return;
+
+                    const url = new URL(referrer);
+                    const path = url.pathname;
+                    const container = document.getElementById('back-link-container');
+                    const link = document.getElementById('back-link');
+                    const text = document.getElementById('back-link-text');
+
+                    if (!container || !link || !text) return;
+
+                    let label = '返回';
+                    let href = referrer;
+
+                    if (path === '/' || path === '/index.html') {
+                        label = '返回首页';
+                        href = '/';
+                    } else if (path.startsWith('/diary/')) {
+                        label = '返回日记';
+                        href = '/diary/';
+                    } else if (path.startsWith('/archive/')) {
+                        label = '返回归档';
+                        href = '/archive/';
+                    } else if (path.startsWith('/tags/')) {
+                        label = '返回标签';
+                        href = path;
+                    } else if (path.startsWith('/categories/')) {
+                        label = '返回分类';
+                        href = path;
+                    }
+
+                    text.textContent = label;
+                    link.setAttribute('href', href);
+                    container.classList.remove('hidden');
+
+                    // 如果是日记文章且来自日记页，设置 sessionStorage 以便返回时展开对应年月
+                    const slugMeta = document.querySelector('meta[name="article-slug"]');
+                    const slug = slugMeta ? slugMeta.getAttribute('content') : '';
+                    if (slug && slug.startsWith('summary/') && path.startsWith('/diary/')) {
+                        const parts = slug.split('/');
+                        const yearMatch = parts[1] ? parts[1].match(/^(\d+)year$/) : null;
+                        const monthMatch = parts[2] ? parts[2].match(/^(\d+)month$/) : null;
+                        if (yearMatch) {
+                            sessionStorage.setItem('diary-expand-year', yearMatch[1]);
+                            if (monthMatch) {
+                                sessionStorage.setItem('diary-expand-month', monthMatch[1]);
+                            }
+                        }
+                    }
+                })();
+            </script>
 
             <!-- title -->
             <div class="relative onload-animation">
