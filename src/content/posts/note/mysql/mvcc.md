@@ -1,6 +1,6 @@
 ---
 title: "MVCC（多版本并发控制）核心原理"
-published: 2026-02-11
+published: 2026-02-09
 description: "MVCC（多版本并发控制）核心原理\r 一、MVCC 定义\r MVCC（Multi-Version Concurrency Control）即多版本并发控制，是 InnoDB 为解决读写冲突、提升数据库并发性能设计的核心机制，通过为数据维护多个版本，让读操作无需加锁即可读取历史版本，实现“读不加锁、读..."
 tags: ["笔记", "MySQL", "数据库"]
 category: "MySQL"

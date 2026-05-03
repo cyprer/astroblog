@@ -1,6 +1,6 @@
 ---
 title: "责任链和规则树"
-published: 2025-08-02
+published: 2025-07-21
 description: "责任链和规则树\r \r 责任链\r   使用行为型设计模式的责任链模式完成前置中置过滤的解耦"
 tags: ["项目", "营销系统", "DDD"]
 category: "项目-营销系统"

@@ -1,6 +1,6 @@
 ---
 title: "Spring 框架介绍"
-published: 2026-03-13
+published: 2025-03-11
 description: "Spring 框架介绍\r \r 1. 什么是 Spring？\r Spring 是一个开源的 Java 平台，用于构建轻量级、高性能的企业级应用。它提供了全面的基础设施支持，使开发者能够专注于应用的业务逻辑，而不必过多关注底层的复杂性。Spring 的核心理念是控制反转（IoC）和面向切面编程（AOP）..."
 tags: ["笔记", "Java"]
 category: "Java"
