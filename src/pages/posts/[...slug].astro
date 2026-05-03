@@ -108,6 +108,12 @@ const jsonLd = {
                     } else if (path.startsWith('/archive/')) {
                         label = '返回归档';
                         href = '/archive/';
+                    } else if (path.startsWith('/notes/')) {
+                        label = '返回笔记';
+                        href = '/notes/';
+                    } else if (path.startsWith('/projects/')) {
+                        label = '返回项目';
+                        href = '/projects/';
                     } else if (path.startsWith('/tags/')) {
                         label = '返回标签';
                         href = path;
