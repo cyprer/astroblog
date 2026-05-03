@@ -38,51 +38,54 @@ let expandedMonths = new Set<string>();
 let expandedWeeks = new Set<string>();
 
 function toggleYear(year: number) {
-	if (expandedYears.has(year)) {
-		expandedYears.delete(year);
+	const next = new Set(expandedYears);
+	if (next.has(year)) {
+		next.delete(year);
 	} else {
-		expandedYears.add(year);
+		next.add(year);
 	}
-	expandedYears = expandedYears;
+	expandedYears = next;
 }
 
 function toggleMonth(key: string) {
-	if (expandedMonths.has(key)) {
-		expandedMonths.delete(key);
+	const next = new Set(expandedMonths);
+	if (next.has(key)) {
+		next.delete(key);
 	} else {
-		expandedMonths.add(key);
+		next.add(key);
 	}
-	expandedMonths = expandedMonths;
+	expandedMonths = next;
 }
 
 function toggleWeek(key: string) {
-	if (expandedWeeks.has(key)) {
-		expandedWeeks.delete(key);
+	const next = new Set(expandedWeeks);
+	if (next.has(key)) {
+		next.delete(key);
 	} else {
-		expandedWeeks.add(key);
+		next.add(key);
 	}
-	expandedWeeks = expandedWeeks;
+	expandedWeeks = next;
 }
 
 function parseSlug(slug: string) {
 	// summary/26year/4month/3week.md or summary/26year/4month/index.md or summary/26year/index.md
-	const parts = slug.split('/');
+	const parts = slug.split("/");
 	let year: number | null = null;
 	let month: number | null = null;
 	let week: number | null = null;
 	let isIndex = false;
 
 	for (const part of parts) {
-		if (part.endsWith('year')) {
-			const n = Number.parseInt(part.replace('year', ''), 10);
+		if (part.endsWith("year")) {
+			const n = Number.parseInt(part.replace("year", ""), 10);
 			if (!Number.isNaN(n)) year = n;
-		} else if (part.endsWith('month')) {
-			const n = Number.parseInt(part.replace('month', ''), 10);
+		} else if (part.endsWith("month")) {
+			const n = Number.parseInt(part.replace("month", ""), 10);
 			if (!Number.isNaN(n)) month = n;
-		} else if (part.endsWith('week')) {
-			const n = Number.parseInt(part.replace('week', ''), 10);
+		} else if (part.endsWith("week")) {
+			const n = Number.parseInt(part.replace("week", ""), 10);
 			if (!Number.isNaN(n)) week = n;
-		} else if (part === 'index') {
+		} else if (part === "index") {
 			isIndex = true;
 		}
 	}
@@ -92,7 +95,7 @@ function parseSlug(slug: string) {
 onMount(() => {
 	// filter posts in summary/ directory or category 周报/日记
 	const diaryPosts = sortedPosts.filter((post) => {
-		return post.slug.startsWith('summary/');
+		return post.slug.startsWith("summary/");
 	});
 
 	const yearMap = new Map<number, YearItem>();
@@ -104,7 +107,8 @@ onMount(() => {
 		if (!yearMap.has(year)) {
 			yearMap.set(year, { year, posts: [], months: [] });
 		}
-		const yItem = yearMap.get(year)!;
+		const yItem = yearMap.get(year);
+		if (!yItem) continue;
 
 		if (month == null) {
 			// year index
@@ -143,43 +147,38 @@ onMount(() => {
 	}
 
 	// Check sessionStorage for which year/month to expand (set before navigating to a post)
-	const savedYear = sessionStorage.getItem('diary-expand-year');
-	const savedMonth = sessionStorage.getItem('diary-expand-month');
+	const savedYear = sessionStorage.getItem("diary-expand-year");
+	const savedMonth = sessionStorage.getItem("diary-expand-month");
 
 	if (savedYear) {
 		const yearNum = Number.parseInt(savedYear, 10);
 		const yearItem = years.find((y) => y.year === yearNum);
 		if (yearItem) {
-			expandedYears.add(yearNum);
-			expandedYears = expandedYears;
+			expandedYears = new Set([...expandedYears, yearNum]);
 
 			if (savedMonth) {
 				const monthNum = Number.parseInt(savedMonth, 10);
 				const monthItem = yearItem.months.find((m) => m.month === monthNum);
 				if (monthItem) {
 					const mk = `${yearNum}-${monthNum}`;
-					expandedMonths.add(mk);
-					expandedMonths = expandedMonths;
+					expandedMonths = new Set([...expandedMonths, mk]);
 				}
 			} else if (yearItem.months.length > 0) {
 				// If only year specified, expand the first month
 				const mk = `${yearNum}-${yearItem.months[0].month}`;
-				expandedMonths.add(mk);
-				expandedMonths = expandedMonths;
+				expandedMonths = new Set([...expandedMonths, mk]);
 			}
 		}
 		// Clear after restoring so it doesn't persist on manual refresh
-		sessionStorage.removeItem('diary-expand-year');
-		sessionStorage.removeItem('diary-expand-month');
+		sessionStorage.removeItem("diary-expand-year");
+		sessionStorage.removeItem("diary-expand-month");
 	} else {
 		// default expand the latest year and month
 		if (years.length > 0) {
-			expandedYears.add(years[0].year);
-			expandedYears = expandedYears;
+			expandedYears = new Set([...expandedYears, years[0].year]);
 			if (years[0].months.length > 0) {
 				const mk = `${years[0].year}-${years[0].months[0].month}`;
-				expandedMonths.add(mk);
-				expandedMonths = expandedMonths;
+				expandedMonths = new Set([...expandedMonths, mk]);
 			}
 		}
 	}

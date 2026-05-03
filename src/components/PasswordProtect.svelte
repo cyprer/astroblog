@@ -4,7 +4,8 @@ import { onMount } from "svelte";
 // 设置密码：把你想用的密码用 SHA-256 编码后填在这里
 // 在线生成工具：https://www.hashes.com/en/tools/hash_generator
 // 当前密码是 "51522"
-const CORRECT_HASH = "1416569546bb9d01b5462bdb998acd55ace7a4c2af82e8795ba959fad30486b6";
+const CORRECT_HASH =
+	"1416569546bb9d01b5462bdb998acd55ace7a4c2af82e8795ba959fad30486b6";
 
 const STORAGE_KEY = "diary_unlocked";
 
