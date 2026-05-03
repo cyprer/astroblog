@@ -1,5 +1,5 @@
 ---
-title: "Untitled"
+title: "浮点数"
 published: 2026-05-01
 description: "1. 浮点数的重要性\r    浮点数用于表示非常大或非常小的数值，以及带有小数部分的数值。\r    浮点数在科学计算、工程和计算机图形学中非常重要。\r 2. 浮点数的基本概念\r    定点数（Fixed Point）：小数点位置固定，表示范围有限。\r    浮点数（Floating Point）：小..."
 tags: ["笔记", "计组", "CS"]

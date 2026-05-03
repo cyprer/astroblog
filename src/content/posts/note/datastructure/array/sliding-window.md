@@ -1,5 +1,5 @@
 ---
-title: "Untitled"
+title: "滑动窗口"
 published: 2026-05-01
 description: "给定一个含有 n 个正整数的数组和一个正整数 target 。\r \r 找出该数组中满足其总和大于等于 target 的长度最小的\r 子数组\r [numsl, numsl+1, ..., numsr-1, numsr] ，并返回其长度。如果不存在符合条件的子数组，返回 0 。\r \r \r \r 示例 1：..."
 tags: ["笔记", "数据结构", "算法", "数组"]
