@@ -1,8 +1,8 @@
 ---
-import MainGridLayout from "@layouts/MainGridLayout.astro";
 import { getCollection } from "astro:content";
-import { getPostUrlBySlug } from "@utils/url-utils";
+import MainGridLayout from "@layouts/MainGridLayout.astro";
 import { formatDateToYYYYMMDD } from "@utils/date-utils";
+import { getPostUrlBySlug } from "@utils/url-utils";
 
 const allPosts = await getCollection("posts", ({ data }) => {
 	return import.meta.env.PROD ? data.draft !== true : true;
@@ -22,10 +22,12 @@ const groupMap = new Map<string, typeof notePosts>();
 for (const post of notePosts) {
 	const parts = post.slug.split("/");
 	const group = parts[1] || "其他";
-	if (!groupMap.has(group)) {
-		groupMap.set(group, []);
+	const list = groupMap.get(group);
+	if (list) {
+		list.push(post);
+	} else {
+		groupMap.set(group, [post]);
 	}
-	groupMap.get(group)!.push(post);
 }
 
 // Sort groups alphabetically
