@@ -48,6 +48,16 @@ export const navBarConfig: NavBarConfig = {
 			url: "/diary/",
 			external: false,
 		},
+		{
+			name: "笔记",
+			url: "/notes/",
+			external: false,
+		},
+		{
+			name: "项目",
+			url: "/projects/",
+			external: false,
+		},
 		LinkPreset.About,
 		{
 			name: "GitHub",
