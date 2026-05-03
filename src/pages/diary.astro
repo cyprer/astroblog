@@ -11,4 +11,7 @@ const sortedPostsList = await getSortedPostsList();
     <PasswordProtect client:only="svelte">
         <DiaryPanel sortedPosts={sortedPostsList} client:only="svelte"></DiaryPanel>
     </PasswordProtect>
+    <script is:inline>
+        sessionStorage.setItem('last-list-page', window.location.pathname);
+    </script>
 </MainGridLayout>

@@ -82,54 +82,88 @@ const jsonLd = {
 
             <script is:inline>
                 (function() {
-                    const referrer = document.referrer;
-                    const currentUrl = window.location.href;
-
-                    // 没有 referrer 或来自当前页，不显示
-                    if (!referrer || referrer === currentUrl) return;
-
-                    const url = new URL(referrer);
-                    const path = url.pathname;
                     const container = document.getElementById('back-link-container');
                     const link = document.getElementById('back-link');
                     const text = document.getElementById('back-link-text');
 
                     if (!container || !link || !text) return;
 
-                    let label = '返回';
-                    let href = referrer;
+                    // 优先从 sessionStorage 读取来源页面（列表页会设置这个值）
+                    const lastListPage = sessionStorage.getItem('last-list-page');
+                    const referrer = document.referrer;
+                    const currentUrl = window.location.href;
 
-                    if (path === '/' || path === '/index.html') {
-                        label = '返回首页';
-                        href = '/';
-                    } else if (path.startsWith('/diary/')) {
-                        label = '返回日记';
-                        href = '/diary/';
-                    } else if (path.startsWith('/archive/')) {
-                        label = '返回归档';
-                        href = '/archive/';
-                    } else if (path.startsWith('/notes/')) {
-                        label = '返回笔记';
-                        href = '/notes/';
-                    } else if (path.startsWith('/projects/')) {
-                        label = '返回项目';
-                        href = '/projects/';
-                    } else if (path.startsWith('/tags/')) {
-                        label = '返回标签';
-                        href = path;
-                    } else if (path.startsWith('/categories/')) {
-                        label = '返回分类';
-                        href = path;
+                    let label = '';
+                    let href = '';
+
+                    // 如果有 sessionStorage 记录，优先使用
+                    if (lastListPage) {
+                        if (lastListPage === '/' || lastListPage === '/index.html') {
+                            label = '返回首页';
+                            href = '/';
+                        } else if (lastListPage.startsWith('/diary/')) {
+                            label = '返回日记';
+                            href = '/diary/';
+                        } else if (lastListPage.startsWith('/archive/')) {
+                            label = '返回归档';
+                            href = '/archive/';
+                        } else if (lastListPage.startsWith('/notes/')) {
+                            label = '返回笔记';
+                            href = '/notes/';
+                        } else if (lastListPage.startsWith('/projects/')) {
+                            label = '返回项目';
+                            href = '/projects/';
+                        } else if (lastListPage.startsWith('/tags/')) {
+                            label = '返回标签';
+                            href = lastListPage;
+                        } else if (lastListPage.startsWith('/categories/')) {
+                            label = '返回分类';
+                            href = lastListPage;
+                        }
                     }
+
+                    // 如果没有 sessionStorage，尝试用 referrer
+                    if (!label && referrer && referrer !== currentUrl) {
+                        try {
+                            const url = new URL(referrer);
+                            const path = url.pathname;
+                            if (path === '/' || path === '/index.html') {
+                                label = '返回首页';
+                                href = '/';
+                            } else if (path.startsWith('/diary/')) {
+                                label = '返回日记';
+                                href = '/diary/';
+                            } else if (path.startsWith('/archive/')) {
+                                label = '返回归档';
+                                href = '/archive/';
+                            } else if (path.startsWith('/notes/')) {
+                                label = '返回笔记';
+                                href = '/notes/';
+                            } else if (path.startsWith('/projects/')) {
+                                label = '返回项目';
+                                href = '/projects/';
+                            } else if (path.startsWith('/tags/')) {
+                                label = '返回标签';
+                                href = path;
+                            } else if (path.startsWith('/categories/')) {
+                                label = '返回分类';
+                                href = path;
+                            }
+                        } catch (e) {
+                            // referrer 解析失败，忽略
+                        }
+                    }
+
+                    if (!label) return;
 
                     text.textContent = label;
                     link.setAttribute('href', href);
                     container.classList.remove('hidden');
 
-                    // 如果是日记文章且来自日记页，设置 sessionStorage 以便返回时展开对应年月
+                    // 如果是日记文章且返回目标是日记页，设置 sessionStorage 以便返回时展开对应年月
                     const slugMeta = document.querySelector('meta[name="article-slug"]');
                     const slug = slugMeta ? slugMeta.getAttribute('content') : '';
-                    if (slug && slug.startsWith('summary/') && path.startsWith('/diary/')) {
+                    if (slug && slug.startsWith('summary/') && href.startsWith('/diary/')) {
                         const parts = slug.split('/');
                         const yearMatch = parts[1] ? parts[1].match(/^(\d+)year$/) : null;
                         const monthMatch = parts[2] ? parts[2].match(/^(\d+)month$/) : null;

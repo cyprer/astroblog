@@ -53,6 +53,9 @@ const groupNames: Record<string, string> = {
 ---
 
 <MainGridLayout title="笔记">
+	<script is:inline>
+		sessionStorage.setItem('last-list-page', window.location.pathname);
+	</script>
 	<div class="card-base px-6 py-6">
 		<h1 class="text-2xl font-bold mb-6 text-[var(--primary)]">笔记</h1>
 		

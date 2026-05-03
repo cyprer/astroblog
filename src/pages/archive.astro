@@ -10,5 +10,8 @@ const sortedPostsList = await getSortedPostsList();
 
 <MainGridLayout title={i18n(I18nKey.archive)}>
     <ArchivePanel sortedPosts={sortedPostsList} client:only="svelte"></ArchivePanel>
+    <script is:inline>
+        sessionStorage.setItem('last-list-page', window.location.pathname);
+    </script>
 </MainGridLayout>
 
