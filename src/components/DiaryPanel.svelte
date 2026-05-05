@@ -172,15 +172,6 @@ onMount(() => {
 		// Clear after restoring so it doesn't persist on manual refresh
 		sessionStorage.removeItem("diary-expand-year");
 		sessionStorage.removeItem("diary-expand-month");
-	} else {
-		// default expand the latest year and month
-		if (years.length > 0) {
-			expandedYears = new Set([...expandedYears, years[0].year]);
-			if (years[0].months.length > 0) {
-				const mk = `${years[0].year}-${years[0].months[0].month}`;
-				expandedMonths = new Set([...expandedMonths, mk]);
-			}
-		}
 	}
 });
 </script>
