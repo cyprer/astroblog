@@ -1,7 +1,6 @@
 ---
 title: "MySQL 数据更新全流程笔记（含问题与解决方案）"
 published: 2025-12-22
-description: "MySQL 数据更新全流程笔记（含问题与解决方案）\r \r 核心前提：基于 InnoDB 引擎（重点关注日志、内存、磁盘交互），以 SQL  为例，梳理完整流程、问题及解决方案。\r \r 一、数据更新完整流程（5步，按顺序执行）\r \r 1. 读取数据页到内存：将磁盘上存储 id=1 数据的 16KB 数..."
 tags: ["笔记", "MySQL", "数据库"]
 category: "MySQL"
 draft: false

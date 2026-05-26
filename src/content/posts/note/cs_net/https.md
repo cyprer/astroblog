@@ -1,7 +1,6 @@
 ---
 title: "HTTPS"
 published: 2026-03-09
-description: "HTTPS \r \r HTTP 的安全问题\r 1. 明文传输，容易被窃听\r    所有数据都是明文，抓包即可看到账号、密码、内容、Cookie\r    无任何机密性\r \r 2. 报文容易被篡改\r    中间人可修改请求或响应内容\r    注入广告、恶意代码、篡改页面、劫持跳转\r \r 3. 无法识别通信..."
 tags: ["笔记", "计网", "网络"]
 category: "计算机网络"
 draft: false

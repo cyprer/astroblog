@@ -1,7 +1,6 @@
 ---
 title: "第一周周记"
 published: 2025-01-01
-description: "第一周周记"
 tags: ["周报", "总结"]
 category: "周报"
 draft: false

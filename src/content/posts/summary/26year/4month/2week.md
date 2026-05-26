@@ -1,7 +1,6 @@
 ---
 title: "第二周周记"
 published: 2026-04-08
-description: "第二周周记\r   本周完成了后端代码完善与 Redis 问题排查，进行了多次技术选型尝试（minimax→codex→astrbot→OpenClaw，nanobot→nanocode），学习 langchain、smolagent、playwright 等技术。规划了医疗助手和爬虫 AI（小红书文..."
 tags: ["周报", "总结"]
 category: "周报"
 draft: false

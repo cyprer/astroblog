@@ -1,7 +1,6 @@
 ---
 title: "ribbon"
 published: 2025-08-16
-description: "ribbon\r > 负载均衡\r 修改负载均衡规则\r 1. 代码方式:在微服务项目的application类中定义一个新的IRule:\r     yaml\r     usersevice:\r       ribbon:\r         NFLoadBalancerRuleClassName: com..."
 tags: ["笔记", "微服务", "SpringCloud"]
 category: "微服务"
 draft: false

@@ -1,7 +1,6 @@
 ---
 title: "第一周周记"
 published: 2026-04-01
-description: "the first wekk summary\r \r 4.1\r   Wednesday,sunny.In the morning,mentor told me to test the inteferface.I did it.And i asked what should we do next.He ..."
 tags: ["周报", "总结"]
 category: "周报"
 draft: false

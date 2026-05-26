@@ -1,7 +1,6 @@
 ---
 title: "Spring MVC 介绍"
 published: 2025-03-11
-description: "Spring MVC 介绍\r \r 1. 什么是 Spring MVC\r Spring MVC 是 Spring 框架的一个模块，专门用于 Web 开发。它是 Spring 的一个后续产品，通常被称为 Spring Web MVC。Spring MVC 是一个基于 Java 的轻量级 Web 框架，用..."
 tags: ["笔记", "Java"]
 category: "Java"
 draft: false

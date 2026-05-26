@@ -1,7 +1,6 @@
 ---
 title: "模板模式"
 published: 2025-08-02
-description: "模板模式\r \r 抽象类定义\r   定义抽象类,实现基础接口,抽象类定义抽象方法由子类实现"
 tags: ["项目", "营销系统", "DDD"]
 category: "项目-营销系统"
 draft: false

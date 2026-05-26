@@ -1,7 +1,6 @@
 ---
 title: "第四周周记"
 published: 2025-05-22
-description: "第四周周记"
 tags: ["周报", "总结"]
 category: "周报"
 draft: false

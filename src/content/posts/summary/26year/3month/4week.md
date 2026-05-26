@@ -1,7 +1,6 @@
 ---
 title: "第四周周记"
 published: 2026-03-22
-description: "第四周周记 \r   This week,my intership life started.For to adapt the work of intership,I have to learn the some knowledge about the front-end and agent.In a..."
 tags: ["周报", "总结"]
 category: "周报"
 draft: false

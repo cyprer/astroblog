@@ -1,7 +1,6 @@
 ---
 title: "Docker 基础命令使用教程"
 published: 2025-12-14
-description: "Docker 基础命令使用教程\r 一、Docker 核心概念（快速理解）\r | 概念       | 说明                                                                 |\r |------------|---------------..."
 tags: ["笔记", "Docker", "容器"]
 category: "Docker"
 draft: false

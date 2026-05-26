@@ -1,7 +1,6 @@
 ---
 title: "HTTP 演变史"
 published: 2026-03-09
-description: "HTTP 演变史\r \r 1. HTTP/0.9 —— 最原始，只够“能用”\r 特点\r 只有 GET 请求\r 没有请求头、响应头\r 没有状态码、没有POST、没有图片\r 一次请求，建立一次 TCP 连接，请求完立刻断开\r \r 问题\r 功能极弱，只能返回简单 HTML\r 无任何扩展能力\r 无状态、无错误..."
 tags: ["笔记", "计网", "网络"]
 category: "计算机网络"
 draft: false

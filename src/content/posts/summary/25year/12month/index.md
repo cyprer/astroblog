@@ -1,7 +1,6 @@
 ---
 title: "2025年12月份summary"
 published: 2025-12-01
-description: "12月summary\r   这个月学了点agent,测试的知识,有两个面试,一个java的,没过,还面了个测试岗,问的挺简单的,但我意愿不是很好,所以没录用我吧,然后也没怎么学了,期末了,还和对象分手了,很糟糕的一个月吧."
 tags: ["周报", "总结"]
 category: "周报"
 draft: false

@@ -1,7 +1,6 @@
 ---
 title: "Spring Cloud Gateway 学习笔记"
 published: 2025-08-16
-description: "Spring Cloud Gateway 学习笔记\r 1. 什么是 Spring Cloud Gateway\r Spring Cloud Gateway 是 Spring 官方推出的新一代 API 网关服务，基于 Spring 5、Spring Boot 2 和 Project Reactor 开发..."
 tags: ["笔记", "微服务", "SpringCloud"]
 category: "微服务"
 draft: false

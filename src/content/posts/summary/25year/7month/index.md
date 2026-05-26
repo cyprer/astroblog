@@ -1,7 +1,6 @@
 ---
 title: "2025年7月份summary"
 published: 2025-07-01
-description: "七月summary \r   这个月一开始复盘了redis项目,但其实还是没弄明白,然后这个月主要是学习大营销项目,也基本学完了,准备八月份把这两个项目弄清楚,起码应付实习是绰绰有余了."
 tags: ["周报", "总结"]
 category: "周报"
 draft: false

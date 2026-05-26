@@ -1,7 +1,6 @@
 ---
 title: "2026年1月份summary"
 published: 2026-01-01
-description: "一月summary\r   前两周是期末周,所以没学,然后考完还面了场试,很简单以至于我有点怀疑面试官的水平,然后也是不出所料挂了,回来之后也没咋学,有点迷茫,不知道学点啥,也没啥动力,但好在最后也是学了点springai,没有完全摆()."
 tags: ["周报", "总结"]
 category: "周报"
 draft: false
