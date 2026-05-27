@@ -1,6 +1,5 @@
 ---
 import DiaryPanel from "@components/DiaryPanel.svelte";
-import PasswordProtect from "@components/PasswordProtect.svelte";
 import MainGridLayout from "@layouts/MainGridLayout.astro";
 import { getSortedPostsList } from "../utils/content-utils";
 
@@ -8,9 +7,7 @@ const sortedPostsList = await getSortedPostsList();
 ---
 
 <MainGridLayout title="日记">
-    <PasswordProtect client:only="svelte">
-        <DiaryPanel sortedPosts={sortedPostsList} client:only="svelte"></DiaryPanel>
-    </PasswordProtect>
+    <DiaryPanel sortedPosts={sortedPostsList} client:only="svelte"></DiaryPanel>
     <script is:inline>
         sessionStorage.setItem('last-list-page', window.location.pathname);
     </script>
